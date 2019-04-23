@@ -11,6 +11,17 @@ workflows:
       # "run" is the name of the job defined in Cypress orb
       - cypress/run:
           yarn: true
+          executor: cypress/base-8
           start: yarn setup && yarn start
           wait-on: 'http://localhost:3000'
           command: npx percy exec -- cypress run --record
+
+# version: 2.1
+# orbs:
+#   cypress: cypress-io/cypress@1.0.0
+# workflows:
+#   build:
+#     jobs:
+#       - cypress/run:
+#           executor: cypress/base-8
+#           start: 'npm start' # start server before running tests
